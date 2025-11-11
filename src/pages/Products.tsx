@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Filter } from 'lucide-react';
 import ProductModal from '../components/ProductModal';
 import { products } from '../data/products';
@@ -7,6 +7,14 @@ export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
+  const [isMd, setIsMd] = useState<boolean>(false);
+
+  useEffect(() => {
+    const check = () => setIsMd(window.innerWidth >= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const categories = ['All', 'Footballs', 'Jerseys', 'Cleats', 'Accessories'];
 
@@ -53,7 +61,7 @@ export default function Products() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product, index) => (
               <div
                 key={product.id}
                 onMouseEnter={() => setHoveredProduct(product.id)}
@@ -67,6 +75,7 @@ export default function Products() {
                       : 'rotateY(0deg) rotateX(0deg) scale(1)',
                   transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                   transformStyle: 'preserve-3d',
+                  ...(isMd ? { animation: 'float 3s ease-in-out infinite', animationDelay: `${index * 0.08}s` } : {}),
                 }}
               >
                 <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border-2 border-gray-800 group-hover:border-red-500 transition-all duration-500 shadow-lg group-hover:shadow-[0_0_40px_rgba(239,68,68,0.4)]">
@@ -87,7 +96,7 @@ export default function Products() {
                     ))}
 
                     <div
-                      className="text-8xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
+                      className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 overflow-hidden"
                       style={{
                         transform:
                           hoveredProduct === product.id
@@ -95,7 +104,7 @@ export default function Products() {
                             : 'rotateY(0deg)',
                       }}
                     >
-                      {product.emoji}
+                      <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
 

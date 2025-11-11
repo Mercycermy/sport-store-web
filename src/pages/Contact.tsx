@@ -24,17 +24,22 @@ export default function Contact() {
     {
       icon: MapPin,
       title: 'Visit Us',
-      content: '123 Sports Avenue, Athletic City, AC 12345',
+      content: '4kilo Around Arda Subcity In The Buliding Amroge Chicken 3rd Floor',
     },
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'hello@dinksportswear.com',
+      content: 'dinksport145@gmail.com',
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
+      content: (
+        <>
+          <div>+251 984 888 877</div>
+          <div>+251 904 39 15 87</div>
+        </>
+      ),
     },
   ];
 

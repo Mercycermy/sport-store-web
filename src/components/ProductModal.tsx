@@ -24,8 +24,8 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <X size={24} className="text-white" />
         </button>
 
-        <div className="grid md:grid-cols-2 gap-8 p-8">
-          <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 flex items-center justify-center overflow-hidden">
+  <div className="grid md:grid-cols-2 gap-8 p-8 max-h-[85vh] overflow-y-auto sm:p-6">
+            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10" />
 
             {[...Array(5)].map((_, i) => (
@@ -40,8 +40,8 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               />
             ))}
 
-            <div className="relative text-[12rem] animate-float">
-              {product.emoji}
+            <div className="relative animate-float flex items-center justify-center">
+              <img src={product.image} alt={product.name} className="w-48 h-48 md:w-72 md:h-72 object-contain" />
             </div>
           </div>
 

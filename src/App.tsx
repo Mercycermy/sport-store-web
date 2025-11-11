@@ -12,7 +12,7 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home />;
+    return <Home onNavigate={handleNavigate} />;
       case 'about':
         return <About />;
       case 'products':

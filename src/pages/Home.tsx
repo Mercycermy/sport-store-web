@@ -1,16 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ShoppingBag } from 'lucide-react';
 import ProductModal from '../components/ProductModal';
 import { products } from '../data/products';
+import soccerball from '../data/images/soccerball.jpg';
+import jersey from '../data/images/jersey.jpg';
+import cleats from '../data/images/cleats.jpg';
 
-export default function Home() {
+type HomeProps = {
+  onNavigate?: (page: string) => void;
+};
+
+export default function Home({ onNavigate }: HomeProps) {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [isMd, setIsMd] = useState<boolean>(false);
+
+  useEffect(() => {
+    const check = () => setIsMd(window.innerWidth >= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const categories = [
-    { name: 'Footballs', image: '🏀', color: 'from-red-500 to-orange-500' },
-    { name: 'Jerseys', image: '👕', color: 'from-orange-500 to-red-400' },
-    { name: 'Cleats', image: '👟', color: 'from-red-400 to-orange-600' },
+    { name: 'Footballs', image: soccerball, color: 'from-red-500 to-orange-500' },
+    { name: 'Jerseys', image: jersey, color: 'from-orange-500 to-red-400' },
+    { name: 'Cleats', image: cleats, color: 'from-red-400 to-orange-600' },
   ];
 
   return (
@@ -46,11 +61,17 @@ export default function Home() {
             Premium sportswear for champions
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg font-bold text-lg hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] transform hover:scale-105 transition-all duration-300">
+            <button
+              onClick={() => onNavigate?.('products')}
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg font-bold text-lg hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] transform hover:scale-105 transition-all duration-300"
+            >
               Shop Collection
             </button>
-            <button className="px-8 py-4 border-2 border-red-500 rounded-lg font-bold text-lg hover:bg-red-500/20 hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] transform hover:scale-105 transition-all duration-300">
-              Explore 3D Store
+            <button
+              onClick={() => onNavigate?.('contact')}
+              className="w-full sm:w-auto px-8 py-4 border-2 border-red-500 rounded-lg font-bold text-lg hover:bg-red-500/20 hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] transform hover:scale-105 transition-all duration-300"
+            >
+              Contact Us
             </button>
           </div>
         </div>
@@ -76,28 +97,40 @@ export default function Home() {
                 key={index}
                 onMouseEnter={() => setHoveredCategory(category.name)}
                 onMouseLeave={() => setHoveredCategory(null)}
-                className="relative h-96 bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden cursor-pointer group"
+                className="relative h-96 rounded-2xl overflow-hidden cursor-pointer group transform-gpu"
                 style={{
                   transform:
                     hoveredCategory === category.name
-                      ? 'rotateY(5deg) rotateX(5deg)'
+                      ? 'rotateY(5deg) rotateX(5deg) scale(1.03)'
                       : 'rotateY(0deg) rotateX(0deg)',
                   transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  ...(isMd ? { animation: 'float 3s ease-in-out infinite', animationDelay: `${index * 0.12}s` } : {}),
                 }}
               >
+                {/* background image fills the card */}
+                <img src={category.image} alt={category.name} className="absolute inset-0 w-full h-full object-cover rounded-2xl" />
+
+                {/* subtle gradient overlay that appears on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-10 group-hover:opacity-30 transition-opacity duration-500 z-10 rounded-2xl`}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-8xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                    {category.image}
+
+                {/* content on top of the image */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-6">
+                  <div className="mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    {/* decorative small image/icon retained if needed */}
+                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-lg bg-black/30 flex items-center justify-center backdrop-blur-sm">
+                      <img src={category.image} alt={`${category.name} icon`} className="w-full h-full object-cover rounded-lg opacity-90" />
+                    </div>
                   </div>
-                  <h3 className="text-3xl font-black text-white mb-2">
+                  <h3 className="text-3xl font-black text-white mb-2 drop-shadow-md">
                     {category.name}
                   </h3>
                   <div className="h-1 w-16 bg-gradient-to-r from-red-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 </div>
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-500 rounded-2xl transition-all duration-500" />
+
+                {/* border outline on top */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-500 rounded-2xl transition-all duration-500 z-30" />
               </div>
             ))}
           </div>
@@ -126,8 +159,8 @@ export default function Home() {
                 onClick={() => setSelectedProduct(product)}
                 className="group relative bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden cursor-pointer hover:shadow-[0_0_40px_rgba(239,68,68,0.4)] transition-all duration-500 transform hover:scale-105"
               >
-                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center text-6xl">
-                  {product.emoji}
+                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 group-hover:text-red-500 transition-colors">
@@ -154,8 +187,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-96 rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20" />
-            <div className="absolute inset-0 flex items-center justify-center text-9xl animate-pulse">
-              ⚡
+            <div className="absolute inset-0 flex items-center justify-center opacity-10">
+              <img src={soccerball} alt="decor" className="w-3/4 h-3/4 object-cover opacity-20 animate-pulse" />
             </div>
           </div>
           <div>
