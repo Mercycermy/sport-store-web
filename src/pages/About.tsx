@@ -59,9 +59,9 @@ export default function About() {
   ];
 
   return (
-    <div className="bg-black text-white pt-20">
+  <div className="bg-white text-gray-900 pt-20">
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950 to-black opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-orange-50 opacity-100" />
 
         <div className="absolute inset-0 flex items-center justify-center text-[20rem] opacity-10 animate-pulse">
           🦌
@@ -74,13 +74,13 @@ export default function About() {
             </span>
           </h1>
           <div className="h-1 w-64 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-8" />
-          <p className="text-2xl text-gray-300">
+          <p className="text-2xl text-gray-700">
             Where Passion Meets Precision
           </p>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-black to-gray-900 relative">
+      <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50 relative">
         <div className="absolute inset-0 opacity-5">
           {[...Array(10)].map((_, i) => (
             <div
@@ -120,12 +120,12 @@ export default function About() {
                         {item.year}
                       </div>
                       <h3 className="text-2xl md:text-3xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-lg text-gray-300">{item.description}</p>
+                      <p className="text-lg text-gray-700">{item.description}</p>
                     </div>
 
                     {/* icon bubble in center */}
                     <div className="absolute md:static left-1/2 transform -translate-x-1/2 md:translate-x-0 md:mx-0 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shadow-lg border-2 border-black">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shadow-md border-2 border-white">
                         <Icon size={28} className="text-white" />
                       </div>
                     </div>
@@ -141,7 +141,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-black relative overflow-hidden">
+      <section className="py-20 px-6 bg-white relative overflow-hidden">
         <div className="absolute top-20 left-10 w-96 h-96 bg-red-500 rounded-full blur-3xl opacity-10 animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500 rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }} />
 
@@ -158,7 +158,7 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border-2 border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(239,68,68,0.3)]"
+                className="group relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-red-500 transition-all duration-500 transform hover:scale-105 hover:shadow-md"
               >
                 <div className="mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
                   <value.icon size={48} className="text-red-500" />
@@ -166,14 +166,14 @@ export default function About() {
                 <h3 className="text-2xl font-bold mb-4 group-hover:text-red-500 transition-colors">
                   {value.title}
                 </h3>
-                <p className="text-gray-300">{value.description}</p>
+                <p className="text-gray-700">{value.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl font-black text-center mb-4">
             Meet The{' '}
@@ -191,7 +191,7 @@ export default function About() {
                 style={{ perspective: '1000px' }}
               >
                 <div className="relative transform transition-all duration-500 group-hover:rotate-y-180" style={{ transformStyle: 'preserve-3d' }}>
-                  <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border-2 border-gray-800 group-hover:border-red-500 transition-all duration-500 min-h-[300px] flex flex-col items-center justify-center">
+                  <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 group-hover:border-red-500 transition-all duration-500 min-h-[300px] flex flex-col items-center justify-center shadow-sm">
                     <img src={member.image} alt={member.name} className="w-24 h-24 mb-6 rounded-full object-cover" />
                     <h3 className="text-2xl font-bold mb-2 text-center">
                       {member.name}

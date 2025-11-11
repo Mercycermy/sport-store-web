@@ -15,17 +15,17 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm animate-fade-in">
-      <div className="relative max-w-6xl w-full bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden border-2 border-red-500 shadow-[0_0_60px_rgba(239,68,68,0.4)] animate-scale-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+      <div className="relative max-w-6xl w-full bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg animate-scale-in">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 z-10 p-3 bg-black/50 backdrop-blur-sm rounded-full hover:bg-red-500 transition-all duration-300 hover:rotate-90 transform"
+          className="absolute top-6 right-6 z-10 p-3 bg-gray-50 backdrop-blur-sm rounded-full hover:bg-red-500 transition-all duration-300 hover:rotate-90 transform"
         >
-          <X size={24} className="text-white" />
+          <X size={24} className="text-gray-900" />
         </button>
 
   <div className="grid md:grid-cols-2 gap-8 p-8 max-h-[85vh] overflow-y-auto sm:p-6">
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 flex items-center justify-center overflow-hidden">
+              <div className="relative bg-white rounded-2xl p-12 flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10" />
 
             {[...Array(5)].map((_, i) => (
@@ -51,7 +51,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 {product.category}
               </div>
               <h2 className="text-5xl font-black mb-4">{product.name}</h2>
-              <p className="text-xl text-gray-300 mb-6">{product.description}</p>
+              <p className="text-xl text-gray-700 mb-6">{product.description}</p>
 
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-4 text-red-500">
@@ -60,14 +60,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 <div className="space-y-4">
                   {product.stats.map((stat: any, index: number) => (
                     <div key={index}>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-gray-300 font-medium">
-                          {stat.name}
-                        </span>
-                        <span className="text-red-500 font-bold">
-                          {stat.value}%
-                        </span>
-                      </div>
+                            <div className="flex justify-between mb-2">
+                              <span className="text-gray-700 font-medium">
+                                {stat.name}
+                              </span>
+                              <span className="text-red-500 font-bold">
+                                {stat.value}%
+                              </span>
+                            </div>
                       <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-gradient-to-r from-red-500 to-orange-500 rounded-full animate-progress"
@@ -86,7 +86,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Price</p>
+                  <p className="text-gray-600 text-sm mb-1">Price</p>
                   <p className="text-5xl font-black bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
                     ${product.price}
                   </p>

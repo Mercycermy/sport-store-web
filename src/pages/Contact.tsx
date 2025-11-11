@@ -44,9 +44,9 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-black text-white pt-20 min-h-screen">
+    <div className="bg-white text-gray-900 pt-20 min-h-screen">
       <section className="relative py-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/30 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-orange-50" />
 
         <div className="absolute inset-0 opacity-20">
           {[...Array(30)].map((_, i) => (
@@ -66,46 +66,46 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <h1 className="text-7xl md:text-9xl font-black text-center mb-6">
+          <div className="relative z-10 max-w-7xl mx-auto">
+          <h1 className="text-7xl md:text-9xl font-black text-center mb-6 text-gray-900">
             <span className="bg-gradient-to-r from-red-500 via-orange-500 to-red-600 bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h1>
           <div className="h-1 w-64 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-8" />
-          <p className="text-2xl text-gray-300 text-center">
+          <p className="text-2xl text-gray-700 text-center">
             & Collaborate
           </p>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+  <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-4xl font-black mb-8">
+            <h2 className="text-4xl font-black mb-8 text-gray-900">
               Get In{' '}
               <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
                 Touch
               </span>
             </h2>
-            <p className="text-xl text-gray-300 mb-12">
+            <p className="text-xl text-gray-700 mb-12">
               Have a question or want to work together? We'd love to hear from you.
             </p>
 
             <div className="space-y-8">
-              {contactInfo.map((info, index) => (
+                  {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="group flex items-start gap-6 p-6 bg-gradient-to-br from-gray-900 to-black rounded-2xl border-2 border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(239,68,68,0.3)]"
+                  className="group flex items-start gap-6 p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-red-500 transition-all duration-500 transform hover:scale-105 hover:shadow-md"
                 >
                   <div className="p-4 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
                     <info.icon size={28} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-red-500 transition-colors text-gray-900">
                       {info.title}
                     </h3>
-                    <p className="text-gray-300">{info.content}</p>
+                    <p className="text-gray-700">{info.content}</p>
                   </div>
                 </div>
               ))}
@@ -113,7 +113,7 @@ export default function Contact() {
           </div>
 
           <div className="relative">
-            <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-lg rounded-3xl p-8 border-2 border-gray-800 shadow-2xl">
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-100 shadow-lg">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <div className="text-8xl mb-6 animate-bounce">✓</div>
@@ -124,10 +124,10 @@ export default function Contact() {
                     We'll get back to you as soon as possible.
                   </p>
                 </div>
-              ) : (
+                  ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">
+                    <label className="block text-sm font-medium mb-2 text-gray-700">
                       Your Name
                     </label>
                     <input
@@ -139,17 +139,17 @@ export default function Contact() {
                       }
                       onFocus={() => setFocusedField('name')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-6 py-4 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:outline-none ${
+                      className={`w-full px-6 py-4 bg-gray-50 border-2 rounded-xl text-gray-800 placeholder-gray-500 transition-all duration-300 focus:outline-none ${
                         focusedField === 'name'
-                          ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)]'
-                          : 'border-gray-700'
+                            ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.12)]'
+                            : 'border-gray-200'
                       }`}
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">
+                    <label className="block text-sm font-medium mb-2 text-gray-700">
                       Email Address
                     </label>
                     <input
@@ -161,17 +161,17 @@ export default function Contact() {
                       }
                       onFocus={() => setFocusedField('email')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-6 py-4 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:outline-none ${
+                      className={`w-full px-6 py-4 bg-gray-50 border-2 rounded-xl text-gray-800 placeholder-gray-500 transition-all duration-300 focus:outline-none ${
                         focusedField === 'email'
-                          ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)]'
-                          : 'border-gray-700'
+                          ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.12)]'
+                          : 'border-gray-200'
                       }`}
                       placeholder="john@example.com"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">
+                    <label className="block text-sm font-medium mb-2 text-gray-700">
                       Message
                     </label>
                     <textarea
@@ -183,10 +183,10 @@ export default function Contact() {
                       onFocus={() => setFocusedField('message')}
                       onBlur={() => setFocusedField(null)}
                       rows={6}
-                      className={`w-full px-6 py-4 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:outline-none resize-none ${
+                      className={`w-full px-6 py-4 bg-gray-50 border-2 rounded-xl text-gray-800 placeholder-gray-500 transition-all duration-300 focus:outline-none resize-none ${
                         focusedField === 'message'
-                          ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)]'
-                          : 'border-gray-700'
+                          ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.12)]'
+                          : 'border-gray-200'
                       }`}
                       placeholder="Tell us about your project..."
                     />
@@ -212,20 +212,20 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-black relative overflow-hidden">
+  <section className="py-20 px-6 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-500 to-orange-500 rounded-full blur-3xl animate-pulse" />
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl font-black mb-6">
+          <h2 className="text-5xl font-black mb-6 text-gray-900">
             Ready to{' '}
             <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
               Elevate
             </span>{' '}
             Your Game?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Join thousands of athletes who trust Dink Sports Wear for performance and style.
           </p>
           <button className="px-12 py-5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl font-bold text-xl hover:shadow-[0_0_40px_rgba(239,68,68,0.6)] transform hover:scale-105 transition-all duration-300">

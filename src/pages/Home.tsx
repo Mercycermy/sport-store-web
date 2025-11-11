@@ -29,9 +29,9 @@ export default function Home({ onNavigate }: HomeProps) {
   ];
 
   return (
-    <div className="bg-black text-white">
+  <div className="bg-white text-gray-900">
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-red-950 opacity-90" />
+  <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-orange-50 opacity-100" />
 
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
@@ -54,10 +54,10 @@ export default function Home({ onNavigate }: HomeProps) {
               Play Like a Pro.
             </span>
             <br />
-            <span className="text-white">Look Like Royalty.</span>
+            <span className="text-gray-900">Look Like Royalty.</span>
           </h1>
           <div className="h-1 w-64 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-8 animate-pulse" />
-          <p className="text-xl md:text-2xl text-gray-300 mb-12">
+          <p className="text-xl md:text-2xl text-gray-700 mb-12">
             Premium sportswear for champions
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -81,7 +81,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+  <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl font-black text-center mb-4">
             Featured{' '}
@@ -116,14 +116,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 />
 
                 {/* content on top of the image */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-6">
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-gray-900 px-6">
                   <div className="mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     {/* decorative small image/icon retained if needed */}
                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-lg bg-black/30 flex items-center justify-center backdrop-blur-sm">
                       <img src={category.image} alt={`${category.name} icon`} className="w-full h-full object-cover rounded-lg opacity-90" />
                     </div>
                   </div>
-                  <h3 className="text-3xl font-black text-white mb-2 drop-shadow-md">
+                  <h3 className="text-3xl font-black text-gray-900 mb-2 drop-shadow-md">
                     {category.name}
                   </h3>
                   <div className="h-1 w-16 bg-gradient-to-r from-red-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -137,7 +137,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-black relative overflow-hidden">
+  <section className="py-20 px-6 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-64 h-64 bg-red-500 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -157,16 +157,16 @@ export default function Home({ onNavigate }: HomeProps) {
               <div
                 key={product.id}
                 onClick={() => setSelectedProduct(product)}
-                className="group relative bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden cursor-pointer hover:shadow-[0_0_40px_rgba(239,68,68,0.4)] transition-all duration-500 transform hover:scale-105"
+                className="group relative bg-white rounded-2xl overflow-hidden cursor-pointer hover:shadow-[0_0_20px_rgba(239,68,68,0.12)] transition-all duration-500 transform hover:scale-105 border border-gray-100"
               >
-                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                <div className="aspect-square bg-gray-50 overflow-hidden">
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 group-hover:text-red-500 transition-colors">
                     {product.name}
                   </h3>
-                  <p className="text-gray-400 mb-4">{product.category}</p>
+                  <p className="text-gray-600 mb-4">{product.category}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-black bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
                       ${product.price}
@@ -183,7 +183,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+  <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-96 rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20" />
@@ -203,12 +203,12 @@ export default function Home({ onNavigate }: HomeProps) {
               </span>
             </h2>
             <div className="h-1 w-32 bg-gradient-to-r from-red-500 to-orange-500 mb-8" />
-            <p className="text-xl text-gray-300 leading-relaxed mb-6">
+            <p className="text-xl text-gray-700 leading-relaxed mb-6">
               At Dink Sports Wear, we believe that every athlete deserves gear
               that performs as hard as they do. Our collection combines
               cutting-edge technology with timeless design.
             </p>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-gray-700 leading-relaxed">
               From the field to the streets, we empower athletes to push their
               limits and redefine what's possible.
             </p>

@@ -15,26 +15,26 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800">
+    <footer className="bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
             <img
               src="/photo_2025-11-07_10-07-11.jpg"
               alt="Dink Sports Wear"
-              className="h-16 w-auto mb-6 filter drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+              className="h-16 w-auto mb-6"
             />
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-700 mb-6">
               Premium sportswear for champions. Elevate your game with Dink.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
                 <button
                   key={index}
-                  className="p-3 bg-gray-900 rounded-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_20px_rgba(239,68,68,0.5)]"
+                  className="p-3 bg-gray-100 rounded-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_20px_rgba(239,68,68,0.12)]"
                   aria-label={social.label}
                 >
-                  <social.icon size={20} className="text-white" />
+                  <social.icon size={20} className="text-gray-700" />
                 </button>
               ))}
             </div>
@@ -48,7 +48,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {column.slice(1).map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <button className="text-gray-400 hover:text-red-500 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                    <button className="text-gray-600 hover:text-red-500 transition-colors duration-300 hover:translate-x-1 transform inline-block">
                       {link}
                     </button>
                   </li>
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent mb-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm">
           <p>© 2025 Dink Sports Wear. All rights reserved.</p>
           <div className="flex gap-6">
             <button className="hover:text-red-500 transition-colors">

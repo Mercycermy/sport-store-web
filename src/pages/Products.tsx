@@ -24,7 +24,7 @@ export default function Products() {
       : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="bg-black text-white pt-20 min-h-screen">
+  <div className="bg-white text-gray-900 pt-20 min-h-screen">
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-7xl font-black text-center mb-6">
@@ -34,11 +34,11 @@ export default function Products() {
             </span>
           </h1>
           <div className="h-1 w-32 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-4" />
-          <p className="text-xl text-gray-300 text-center mb-12">
+          <p className="text-xl text-gray-600 text-center mb-12">
             Premium sportswear for every athlete
           </p>
 
-          <div className="sticky top-20 z-40 bg-black/80 backdrop-blur-lg rounded-2xl p-6 mb-12 border border-gray-800">
+          <div className="sticky top-20 z-40 bg-white/80 backdrop-blur-lg rounded-2xl p-6 mb-12 border border-gray-200">
             <div className="flex items-center gap-4 mb-4">
               <Filter className="text-red-500" size={24} />
               <h3 className="text-xl font-bold">Filter by Category</h3>
@@ -49,10 +49,10 @@ export default function Products() {
                   key={category}
                   onClick={() => setSelectedCategory(category)}
                   className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-[0_0_20px_rgba(239,68,68,0.5)]'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
-                  }`}
+                      selectedCategory === category
+                        ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-[0_0_20px_rgba(239,68,68,0.5)]'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900'
+                    }`}
                 >
                   {category}
                 </button>
@@ -78,8 +78,8 @@ export default function Products() {
                   ...(isMd ? { animation: 'float 3s ease-in-out infinite', animationDelay: `${index * 0.08}s` } : {}),
                 }}
               >
-                <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border-2 border-gray-800 group-hover:border-red-500 transition-all duration-500 shadow-lg group-hover:shadow-[0_0_40px_rgba(239,68,68,0.4)]">
-                  <div className="relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
+                <div className="bg-white rounded-2xl overflow-hidden border-2 border-gray-100 group-hover:border-red-500 transition-all duration-500 shadow-md hover:shadow-lg">
+                  <div className="relative aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     {[...Array(3)].map((_, i) => (
@@ -112,7 +112,7 @@ export default function Products() {
                     <h3 className="text-xl font-bold mb-2 group-hover:text-red-500 transition-colors">
                       {product.name}
                     </h3>
-                    <p className="text-gray-400 mb-4">{product.category}</p>
+                    <p className="text-gray-600 mb-4">{product.category}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-black bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
                         ${product.price}
@@ -126,7 +126,7 @@ export default function Products() {
                       {product.stats.map((stat: any, index: number) => (
                         <div key={index} className="space-y-1">
                           <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">{stat.name}</span>
+                            <span className="text-gray-600">{stat.name}</span>
                             <span className="text-red-500 font-bold">
                               {stat.value}%
                             </span>

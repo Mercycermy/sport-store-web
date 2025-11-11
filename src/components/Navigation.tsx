@@ -30,8 +30,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'h-16 bg-black/95 backdrop-blur-lg shadow-lg'
-          : 'h-20 bg-black/80'
+          ? 'h-16 bg-white/95 backdrop-blur-lg shadow-lg'
+          : 'h-20 bg-white/80'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
@@ -53,7 +53,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`relative text-white font-medium transition-all duration-300 hover:text-red-500 ${
+              className={`relative text-gray-900 font-medium transition-all duration-300 hover:text-red-500 ${
                 currentPage === item.id ? 'text-red-500' : ''
               }`}
             >
@@ -70,13 +70,13 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex items-center space-x-4">
           <button
             onClick={() => setIsSearchOpen(!isSearchOpen)}
-            className="text-white hover:text-red-500 transition-colors duration-300 p-2 hover:scale-110 transform"
+            className="text-gray-900 hover:text-red-500 transition-colors duration-300 p-2 hover:scale-110 transform"
           >
             <Search size={20} />
           </button>
 
           <button
-            className="md:hidden text-white hover:text-red-500 transition-colors duration-300"
+            className="md:hidden text-gray-900 hover:text-red-500 transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,18 +85,18 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
       </div>
 
       {isSearchOpen && (
-        <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg p-4 shadow-xl">
+        <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg p-4 shadow-xl">
           <input
             type="text"
             placeholder="Search products..."
-            className="w-full max-w-2xl mx-auto block px-6 py-3 bg-white/10 border border-red-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/50 transition-all duration-300"
+            className="w-full max-w-2xl mx-auto block px-6 py-3 bg-gray-100 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/10 transition-all duration-300"
             autoFocus
           />
         </div>
       )}
 
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg shadow-xl">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-xl">
           <div className="flex flex-col p-4 space-y-4">
             {menuItems.map((item) => (
               <button
@@ -105,7 +105,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   onNavigate(item.id);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`text-left text-white font-medium py-2 transition-all duration-300 hover:text-red-500 hover:translate-x-2 ${
+                className={`text-left text-gray-900 font-medium py-2 transition-all duration-300 hover:text-red-500 hover:translate-x-2 ${
                   currentPage === item.id ? 'text-red-500' : ''
                 }`}
               >
